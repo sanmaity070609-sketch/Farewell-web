@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farewell Invitation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ffe6ec;
+        }
+
+        .message {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+            font-size: 18px;
+            color: #444;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-btn {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Farewell Invitation 💐</h1>
+
+    <!-- Main Buttons -->
+    <div class="buttons" id="mainButtons">
+        <button onclick="showMessage('student')">Student</button>
+        <button onclick="showMessage('teacher')">Teacher</button>
+        <button onclick="showMessage('principal')">Principal</button>
+    </div>
+
+    <!-- Messages -->
+    <div id="student" class="message">
+        <h2>Dear Student 👩‍🎓👨‍🎓</h2>
+        <p>
+            Your journey has been full of learning, friendship, and memories.  
+            We invite you to the farewell program to celebrate your achievements  
+            and wish you luck for a bright future.
+        </p>
+    </div>
+
+    <div id="teacher" class="message">
+        <h2>Respected Teacher 👩‍🏫👨‍🏫</h2>
+        <p>
+            You have guided us, inspired us, and shaped our character.  
+            We warmly invite you to join the farewell program and bless us  
+            as we step into our next chapter.
+        </p>
+    </div>
+
+    <div id="principal" class="message">
+        <h2>Honourable Principal 🎓</h2>
+        <p>
+            With deep respect and gratitude, we invite you to the farewell ceremony.  
+            Your presence will make the event special and memorable for all of us.
+        </p>
+    </div>
+
+    <button class="back-btn" id="backBtn" onclick="goBack()">⬅ Back</button>
+
+    <script>
+        function showMessage(type) {
+            document.getElementById("mainButtons").style.display = "none";
+
+            // hide all first
+            document.querySelectorAll(".message").forEach(m => m.style.display = "none");
+
+            // show selected
+            document.getElementById(type).style.display = "block";
+            document.getElementById("backBtn").style.display = "inline-block";
+        }
+
+        function goBack() {
+            document.getElementById("mainButtons").style.display = "flex";
+            document.querySelectorAll(".message").forEach(m => m.style.display = "none");
+            document.getElementById("backBtn").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
